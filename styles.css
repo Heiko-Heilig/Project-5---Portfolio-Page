@@ -1,0 +1,237 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, a, li, span, div {
+  color: rgb(218, 218, 218);
+}
+
+body {
+  background: url('../images/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.cinzel-header {
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/hero-image.jpg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+  z-index: -1; /* Ensure this is behind the content */
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: none; /* Remove existing background to rely on ::before */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+  padding-bottom: 130px; /* Adjust this to control how far from the bottom */
+}
+
+.hero-box {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  position: relative;
+}
+
+.hero #hero-text {
+  position: relative;
+  font-size: 40px;
+  color: #fff;
+  opacity: 0.6;
+  margin-bottom: 20px;
+}
+
+.hero .fog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1; /* Ensure the fog stays in the foreground */
+}
+
+.hero .fog img {
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+  animation: fog_effect calc(3s * var(--i)) ease-in infinite;
+}
+
+@keyframes fog_effect {
+  0% {
+      opacity: 0;
+      transform: scale(1);
+  }
+  25%,
+  75% {
+      opacity: 0.05;
+  }
+  100% {
+      transform: scale(3);
+      opacity: 0;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+.first-row {
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.first-row .box {
+  width: 150px;
+  height: 150px;
+  background-color: rgba(240, 240, 240, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  box-shadow: 2px 2px 0px 0px rgb(255, 255, 255);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.first-row .box a {
+  text-decoration: none;
+  font-size: 1.2em;
+  color: #000;
+}
+
+.second-row button {
+  padding: 10px 20px;
+  font-size: 1.5em;
+  background-color: rgb(43, 43, 43);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Cinzel", serif;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.second-row button:hover {
+  transform: scale(1.1);
+  background-color: rgb(56, 56, 56);
+}
+
+/*about Page */
+.about {
+  padding: 20px;
+  text-align: center;
+}
+
+.about h1 {
+  font-family: "Cinzel", serif;
+  font-size: 2.5em;
+  margin-top: 100px; /* Push content down */
+  margin-bottom: 20px;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 30px 0;
+}
+
+.about p {
+  font-size: 1.2em;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+
+/* Navigation styles */
+nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.menu-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Initially hidden */
+  width: 300px;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: right 0.3s ease;
+  z-index: 100; /* Ensure the menu stays on top */
+}
+
+.return-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.nav-menu ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 60px; /* Adjust margin to fit the return icon */
+}
+
+.nav-menu ul li {
+  margin: 20px 0;
+}
+
+.nav-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+/* Tilt effect for page content */
+.tilted-content {
+  transform: perspective(1000px) rotateY(10deg) scale(0.65);
+  transition: transform 0.5s ease; /* Smooth transition */
+}
+
+
