@@ -5,6 +5,10 @@
   font-family: 'Poppins', sans-serif;
 }
 
+body, h1, h2, h3, h4, h5, h6, p, a, li, span, div {
+  color: rgb(218, 218, 218);
+}
+
 body {
   background: url('../images/bg.jpg') no-repeat center center fixed;
   background-size: cover;
@@ -141,6 +145,34 @@ body {
   background-color: rgb(56, 56, 56);
 }
 
+/*about Page */
+.about {
+  padding: 20px;
+  text-align: center;
+}
+
+.about h1 {
+  font-family: "Cinzel", serif;
+  font-size: 2.5em;
+  margin-top: 100px; /* Push content down */
+  margin-bottom: 20px;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 30px 0;
+}
+
+.about p {
+  font-size: 1.2em;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+
 /* Navigation styles */
 nav {
   position: absolute;
@@ -201,3 +233,5 @@ nav {
   transform: perspective(1000px) rotateY(10deg) scale(0.65);
   transition: transform 0.5s ease; /* Smooth transition */
 }
+
+
