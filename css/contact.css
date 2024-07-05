@@ -1,0 +1,118 @@
+.contact {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    background: url('../images/hero-image.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+ 
+}
+
+.contact h1 {
+    font-family: "Cinzel", serif;
+    font-size: 2.5em;
+    margin-top: 100px; /* Push content down */
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+.contact-box {
+    padding-top: 100px;
+    width: 100%;
+    max-width: 800px;
+    margin: auto auto;
+    padding: 20px 40px;
+    background-color: rgba(53, 53, 53, 0.8);
+    box-shadow: 2px 2px 0px 0px rgb(255, 255, 255);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-box form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-box label {
+    font-size: 1em;
+    margin: 10px 0 5px;
+    text-align: left;
+    width: 100%;
+    max-width: 400px;
+}
+
+.contact-box input,
+.contact-box textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.contact-box button {
+    padding: 10px 20px;
+    margin-top: 15px;
+    font-size: 1.4em;
+    background-color: rgb(8, 8, 8);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Cinzel", serif;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.contact-box button:hover {
+    transform: scale(1.05);
+    background-color: rgb(56, 56, 56);
+}
+
+/* Fog animation */
+.fog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1; /* Ensure the fog stays in the foreground */
+}
+
+.fog img {
+    position: absolute;
+    bottom: 0;
+    max-width: 100%;
+    animation: fog_effect calc(3s * var(--i)) ease-in infinite;
+}
+
+@keyframes fog_effect {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    25%,
+    75% {
+        opacity: 0.05;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}

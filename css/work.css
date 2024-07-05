@@ -1,0 +1,133 @@
+.work::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/hero-image.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1; /* Ensure this is behind the content */
+}
+
+.work {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: none; /* Remove existing background to rely on ::before */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.work h1 {
+    font-family: "Cinzel", serif;
+    font-size: 2.5em;
+    margin-top: 100px; /* Push content down */
+    margin-bottom: 20px;
+}
+
+.work p {
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    justify-content: center;
+}
+
+a.work-item {
+    position: relative; /* Ensure the overlay positions correctly */
+    width: 250px;
+    height: 250px;
+    background-color: rgba(240, 240, 240, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 0px 0px rgb(255, 255, 255);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from parent */
+}
+
+a.work-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Grey overlay */
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+a.work-item:hover {
+    transform: scale(1.05); /* Grow on hover */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Slight shadow on hover */
+}
+
+a.work-item:hover::before {
+    opacity: 1; /* Show overlay on hover */
+}
+
+a.work-item .thumbnail {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+a.work-item .work-title {
+    font-size: 1.2em;
+    color: #000;
+    margin-top: 10px;
+    z-index: 1; /* Ensure text stays above the overlay */
+    position: relative;
+}
+
+
+.work .fog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1; /* Ensure the fog stays in the foreground */
+  }
+  
+  .work .fog img {
+    position: absolute;
+    bottom: 0;
+    max-width: 100%;
+    animation: fog_effect calc(3s * var(--i)) ease-in infinite;
+  }
+  
+  @keyframes fog_effect {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    25%,
+    75% {
+        opacity: 0.05;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+  }
+  

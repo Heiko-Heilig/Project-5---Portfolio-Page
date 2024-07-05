@@ -1,124 +1,148 @@
 .hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('../images/hero-image.jpg') no-repeat center center;
-    background-size: cover;
-    opacity: 0.9;
-    mix-blend-mode: multiply;
-    z-index: -1; /* Ensure this is behind the content */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/hero-image.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: -1; /* Ensure this is behind the content */
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: none; /* Remove existing background to rely on ::before */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+  padding-bottom: 130px; /* Adjust this to control how far from the bottom */
+}
+
+.hero-box {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  position: relative;
+}
+
+.hero #hero-text {
+  position: relative;
+  font-size: 40px;
+  color: #fff;
+  opacity: 0.6;
+  margin-bottom: 20px;
+}
+
+.hero .fog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1; /* Ensure the fog stays in the foreground */
+}
+
+.hero .fog img {
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+  animation: fog_effect calc(3s * var(--i)) ease-in infinite;
+}
+
+@keyframes fog_effect {
+  0% {
+      opacity: 0;
+      transform: scale(1);
   }
-  
-  .hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background: none; /* Remove existing background to rely on ::before */
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    text-align: center;
-    padding-bottom: 130px; /* Adjust this to control how far from the bottom */
+  25%,
+  75% {
+      opacity: 0.05;
   }
-  
-  .hero-box {
-    width: 100%;
-    max-width: 1200px;
-    text-align: center;
-    position: relative;
+  100% {
+      transform: scale(3);
+      opacity: 0;
   }
-  
-  .hero #hero-text {
-    position: relative;
-    font-size: 40px;
-    color: #fff;
-    opacity: 0.6;
-    margin-bottom: 20px;
-  }
-  
-  .hero .fog {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 1; /* Ensure the fog stays in the foreground */
-  }
-  
-  .hero .fog img {
-    position: absolute;
-    bottom: 0;
-    max-width: 100%;
-    animation: fog_effect calc(3s * var(--i)) ease-in infinite;
-  }
-  
-  @keyframes fog_effect {
-    0% {
-        opacity: 0;
-        transform: scale(1);
-    }
-    25%,
-    75% {
-        opacity: 0.05;
-    }
-    100% {
-        transform: scale(3);
-        opacity: 0;
-    }
-  }
-  
-  .row {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-    width: 100%;
-    padding-bottom: 30px;
-  }
-  
-  .first-row {
-    flex-wrap: wrap;
-    gap: 40px;
-  }
-  
-  .first-row .box {
-    width: 150px;
-    height: 150px;
-    background-color: rgba(240, 240, 240, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    box-shadow: 2px 2px 0px 0px rgb(255, 255, 255);
-    border-radius: 4px;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .first-row .box a {
-    text-decoration: none;
-    font-size: 1.2em;
-    color: #000;
-  }
-  
-  .second-row button {
-    padding: 10px 20px;
-    font-size: 1.5em;
-    background-color: rgb(43, 43, 43);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: "Cinzel", serif;
-    transition: transform 0.3s, background-color 0.3s;
-  }
-  
-  .second-row button:hover {
-    transform: scale(1.1);
-    background-color: rgb(56, 56, 56);
-  }
-  
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+.first-row {
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* Hover effect for boxes in the hero section */
+a.box {
+  position: relative; /* Ensure the overlay positions correctly */
+  width: 150px;
+  height: 150px;
+  background-color: rgba(240, 240, 240, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  box-shadow: 2px 2px 0px 0px rgb(255, 255, 255);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Inherit color from parent */
+}
+
+a.box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Grey overlay */
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+a.box:hover {
+  transform: scale(1.05); /* Grow on hover */
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Slight shadow on hover */
+}
+
+a.box:hover::before {
+  opacity: 1; /* Show overlay on hover */
+}
+
+a.box div {
+  z-index: 1; /* Ensure text stays above the overlay */
+  top: 50px;
+  position: relative;
+  color: black;
+}
+
+.second-row button {
+  padding: 10px 20px;
+  font-size: 1.5em;
+  background-color: rgb(43, 43, 43);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Cinzel", serif;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.second-row button:hover {
+  transform: scale(1.1);
+  background-color: rgb(56, 56, 56);
+}

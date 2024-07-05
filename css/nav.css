@@ -1,4 +1,18 @@
 /* Navigation styles */
+
+/* Logo positioning */
+header {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  z-index: 10;
+}
+
+header .logo {
+  width: 75px; /* Adjust size as needed */
+  height: auto;
+}
+
 nav {
     position: absolute;
     top: 60px;

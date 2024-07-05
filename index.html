@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <img src="images/logo.png" alt="Logo" class="logo">
+    </header>
     <nav>
         <img src="/images/menu-icon.png" alt="Menu Icon" class="menu-icon" id="menu-icon">
         <div class="nav-menu" id="nav-menu">
@@ -19,27 +22,27 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="/about.html">About</a></li>
-                <li><a href="#">My Work</a></li>
+                <li><a href="/work.html">My Work</a></li>
                 <li><a href="#">Blog</a></li>
                 <li><a href="#">Dank Memes</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="/contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
     <div id="content-wrapper">
         <section class="hero">
             <div class="hero-box">
-                <h2 class="cinzel-header" id="hero-text">Welcome to my Head </h2>
+                <h2 class="cinzel-header" id="hero-text">Welcome to my Head</h2>
                 <div class="row first-row">
-                    <div class="box">
-                        <a href="about.html">About Page</a>
-                    </div>
-                    <div class="box">
-                        <a href="work.html">Work Page</a>
-                    </div>
-                    <div class="box">
-                        <a href="blog.html">Blog Page</a>
-                    </div>
+                    <a href="about.html" class="box">
+                        <div>About Page</div>
+                    </a>
+                    <a href="work.html" class="box">
+                        <div>Work Page</div>
+                    </a>
+                    <a href="blog.html" class="box">
+                        <div>Blog Page</div>
+                    </a>
                 </div>
                 <div class="row second-row">
                     <button onclick="window.location.href='contact.html'">Reach Out</button>
