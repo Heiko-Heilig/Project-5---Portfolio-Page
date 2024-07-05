@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, a, li, span, div {
+  color: rgb(218, 218, 218);
+}
+
+body {
+  background: url('../images/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.cinzel-header {
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Tilt effect for page content */
+.tilted-content {
+  transform: perspective(1000px) rotateY(10deg) scale(0.65);
+  transition: transform 0.5s ease; /* Smooth transition */
+}
